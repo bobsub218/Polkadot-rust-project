@@ -1,11 +1,5 @@
 
-[package]
-name = "p3_chain"
-version = "0.1.0"
-[dependencies]
-polkadot-parachain = { path = "<path to polkadot/parachain>" }
-polkadot-collator = { path = "<path to polkadot/collator>" }
-polkadot-primitives = { path = "<path to polkadot/primitives>" }
+
 
 
 //P1 LOGICA PARACHAIN
