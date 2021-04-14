@@ -188,7 +188,6 @@ fn main() {
         }
     )
 } 
-
 ///Ora il paracahin è pronto per la compilazione e la distribuzione.
 /// Dalla cartella Wasm vengono compilate nel BLOB Wasm da wasm-gc. 
 /// Questo codice Wasm può essere distribuito su Polkadot usando le istruzioni fornite sul wiki Polkadot. 
