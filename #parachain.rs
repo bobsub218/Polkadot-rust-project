@@ -31,7 +31,6 @@ pub struct HeadData {
     pub parent_hash: [u8; 32],
     pub state_hash: [u8; 32],
 
-
 }
 #[derive(Default, Clone, Encode, Decode)]
 pub struct BlockData {
