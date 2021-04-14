@@ -5,6 +5,7 @@ Example of building a parachain
 Ogni parachain è compilato in due eseguibili:
 
 da un linguaggio compilato nativamente (Rust, JavaScript, C++)
+
 BLOB del codice Wasm
 
 WebAssembly (Wasm) è un formato di istruzione binario per una macchina virtuale basata su stack. 
