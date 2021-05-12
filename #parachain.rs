@@ -108,7 +108,6 @@ pub extern fn validate(offset: usize, len: usize) -> usize {
     }
 } 
 
-
 /// P3 NODO FASCICOLATORE
 
 ///L'ultima cosa da implementare è un nodo di confronto. 
@@ -159,7 +158,6 @@ impl ParachainContext for CustomContext {
         Ok((encoded_body, encoded_head, Extrinsic { outgoing_messages: Vec::new() }))
     }
 }
-
 
 ///La funzione principale deve contenere solo valori genesis e una chiamata al fascitore::run_collator:
 fn main() {
