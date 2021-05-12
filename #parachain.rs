@@ -33,7 +33,6 @@ pub struct BlockData {
 
 } 
 
-
 // è il nostro tipo personalizzato da archiviare on-chain
 #[derive(Default, Clone, Encode, Decode)]
 pub struct IotData {
@@ -41,8 +40,6 @@ pub struct IotData {
     pub parameter: [char; 20],
     pub value: u64,
 } 
-
-
 
 ///implementiamo qualsiasi logica on-chain 
 /// creiamo una funzione per l'esecuzione di logica personalizzata
@@ -112,7 +109,6 @@ pub extern fn validate(offset: usize, len: usize) -> usize {
 } 
 
 
-
 /// P3 NODO FASCICOLATORE
 
 ///L'ultima cosa da implementare è un nodo di confronto. 
@@ -137,7 +133,6 @@ const GENESIS_BODY: CustomBody = CustomBody {
         value: 0,
     }
 }
-
 
 ///La nostra logica parachain dovrebbe derivare dalla logica comune e interagire con la blockchain del database
 #[derive(Clone)]
