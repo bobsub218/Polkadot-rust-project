@@ -1,7 +1,3 @@
-
-
-
-
 //P1 LOGICA PARACHAIN
 
 //creare uan logica semplice per introdurre alcuni nuovi tipi di dati
