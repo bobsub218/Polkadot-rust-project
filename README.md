@@ -1,6 +1,5 @@
 # Polkadot-rust-project
-Example of building a parachain
-
+Example of building a parachain.
 
 Ogni parachain è compilato in due eseguibili:
 
@@ -42,9 +41,6 @@ cd polkadot
 ./scripts/build.sh  # Builds the WebAssembly binaries
 cargo build # Builds all native code
 cargo test --all
-
-
-
 
 
 Struttura e componenti:
