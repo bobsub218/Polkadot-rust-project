@@ -1,70 +1,67 @@
 # Polkadot-rust-project
 Example of building a parachain.
 
-Ogni parachain è compilato in due eseguibili:
+#### Each parachain is compiled into two executables:
 
-da un linguaggio compilato nativamente (Rust, JavaScript, C++)
+from a natively compiled language (Rust, JavaScript, C++)
 
-BLOB del codice Wasm
+Wasm Code BLOB
 
-WebAssembly (Wasm) è un formato di istruzione binario per una macchina virtuale basata su stack. 
-È stato progettato per essere portatile e per essere eseguito quasi ovunque, in quanto è abbastanza vicino al codice nativo. Per ora, Wasm è supportato da Google, Mozilla, Apple e Microsoft.
+WebAssembly (Wasm) is a binary instruction format for a stack-based virtual machine. 
+It is designed to be portable and run almost anywhere, as it is quite close to native code. For now, Wasm is supported by Google, Mozilla, Apple and Microsoft.
 
+#### Preparing the environment:
+The minimum set of tools used by Polkadot:
 
-Preparare l'ambiente:
-Il set minimo di strumenti utilizzati da Polkadot:
+rust
+WebAssembly Compiler
+Polkadot source code
 
-ruggine
-Compilatore WebAssembly
-Codice sorgente Polkadot
+The first step is to install the Rust language compiler and some additional tools such as the WebAssembly compiler and the project generator. Polkadot is currently written in Rust.
 
-Il primo passaggio consiste nell'installare il compilatore del linguaggio Rust e alcuni strumenti aggiuntivi come il compilatore WebAssembly e il generatore di progetti. Polkadot è attualmente scritto in Rust.
-
-
-Installare Rust e strumenti aggiuntivi:
+#### Install Rust and additional tools:
 
 curl https://sh.rustup.rs -sSf | sh
 rustup update nightly
 rustup default nightly
 rustup target add wasm32-unknown-unknown --toolchain nightly
 
-Dopo che Rust è stato installato con il supporto Wasm, è il momento di installare Wasm stesso. 
-Lo strumento per questo - cargo - è un costruttore di progetti Rust predefinito.
+After Rust has been installed with Wasm support, it is time to install Wasm itself. 
+The tool for this – cargo – is a default Rust project builder.
 
 cargo install --git https://github.com/alexcrichton/wasm-gc
-Ora abbiamo bisogno del codice sorgente Polkadot, in quanto contiene l'API necessaria per il nostro parachain e collator. 
+Now we need the Polkadot source code, as it contains the API needed for our parachain and collator. 
 
-Dopo l'installazione,testare i componenti per assicurarsi che la compilazione sia stabile:
+After installation, test the components to make sure the build is stable:
 
 git clone https://github.com/paritytech/polkadot.git
 cd polkadot
-./scripts/build.sh  # Builds the WebAssembly binaries
+./scripts/build.sh # Builds the WebAssembly binaries
 cargo build # Builds all native code
 cargo test --all
 
-
-Struttura e componenti:
-La struttura del parachain nel progetto è molto semplice. Può essere descritto in tre cartelle.
+#### Structure and components:
+The structure of the parachain in the project is very simple. It can be described in three folders.
 
 P1) Collator
 
-Questa cartella contiene un main.rs file con il codice per l'agente di confronto completo eseguito dal client. 
-Può anche contenere moduli personalizzati, un file di compilazione cargo con dipendenze e altri file di supporto.
+This folder contains a main.rs file with the code for the full comparison agent executed by the client. 
+It can also contain custom modules, a cargo build file with dependencies, and other support files.
 
 P2) src/lib.rs
 
-Questo contiene la logica della paracacina stessa. 
-Può anche contenere moduli personalizzati, file di compilazione del carico, ecc.
+This contains the logic of the parachin itself. 
+It can also contain custom forms, load compilation files, etc.
 
 P3) wasm/lib.rs
 
-Questo file contiene l'API, che sarà visibile ai validatori della catena di inoltro. 
-Più spesso, contiene wrapper intorno alle funzioni dalla cartella src o anche un'importazione di una singola riga di tutte le funzioni / interfacce pubbliche 
-da quella cartella.
+This file contains the API, which will be visible to the forwarding chain validators. 
+Most often, it contains wrappers around functions from the src folder or even a single-line import of all functions/public interfaces 
+from that file.
 
-Il progetto contiene anche un file Cargo.toml (possibilmente per ogni cartella), che contiene le dipendenze utilizzate nel codice: 
-l'API per accedere al parachain, l'API per l'esecuzione di fascicolatori, tipi Polkadot standard, ecc. 
-Il file Cargo.toml può essere simile al seguente:
+The project also contains a Cargo.toml file (possibly for each folder), which contains the dependencies used in the code: 
+the API to access the parachain, the API to run binders, standard Polkadot types, etc. 
+The Cargo.toml file may look like the following:
 
 [package]
 name = "custom_parachain"
