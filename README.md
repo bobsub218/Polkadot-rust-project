@@ -1,4 +1,4 @@
-# polkadot-rust-project
+# Polkadot-rust-project
 Example of building a parachain
 
 
